@@ -1,26 +1,89 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-accent: var(--accent);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  /* To make neomorphism deeply visible, the background must be a very specific mid-tone cool gray 
+     so that pure white highlights and dark shadows BOTH pop intensely. */
+  --background: #e2e8f0; 
+  --foreground: #1e293b;
+  --accent: #3b82f6; 
+}
+
+.dark {
+  --background: #1e2024;
+  --foreground: #e2e8f0;
+  --accent: #60a5fa;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background-color: var(--background) !important;
+  color: var(--foreground) !important;
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Deeply Immersive Neomorphism / Claymorphism */
+@layer utilities {
+  .bg-clay {
+    /* CRITICAL: In true Neomorphism, the element background MUST match the page background perfectly. */
+    background-color: var(--background) !important;
+  }
+  
+  .dark .bg-clay {
+    background-color: var(--background) !important;
+  }
+
+  /* Extremely visible 3D floating effect */
+  .shadow-clay {
+    box-shadow: 
+      12px 12px 24px rgba(163, 177, 198, 0.65), 
+      -12px -12px 24px rgba(255, 255, 255, 0.9),
+      inset -4px -4px 8px rgba(163, 177, 198, 0.2), 
+      inset 4px 4px 8px rgba(255, 255, 255, 0.7) !important;
+  }
+
+  .dark .shadow-clay {
+    box-shadow: 
+      12px 12px 24px rgba(0, 0, 0, 0.6), 
+      -12px -12px 24px rgba(255, 255, 255, 0.04),
+      inset -4px -4px 8px rgba(0, 0, 0, 0.3), 
+      inset 4px 4px 8px rgba(255, 255, 255, 0.05) !important;
+  }
+
+  /* Smaller elements like buttons */
+  .shadow-clay-sm {
+    box-shadow: 
+      6px 6px 12px rgba(163, 177, 198, 0.6), 
+      -6px -6px 12px rgba(255, 255, 255, 0.9),
+      inset -2px -2px 4px rgba(163, 177, 198, 0.2), 
+      inset 2px 2px 4px rgba(255, 255, 255, 0.7) !important;
+  }
+
+  .dark .shadow-clay-sm {
+    box-shadow: 
+      6px 6px 12px rgba(0, 0, 0, 0.6), 
+      -6px -6px 12px rgba(255, 255, 255, 0.04),
+      inset -2px -2px 4px rgba(0, 0, 0, 0.3), 
+      inset 2px 2px 4px rgba(255, 255, 255, 0.05) !important;
+  }
+
+  /* Pushed-in / Indented effect for active states and inputs */
+  .shadow-clay-pressed {
+    box-shadow: 
+      inset 8px 8px 16px rgba(163, 177, 198, 0.65), 
+      inset -8px -8px 16px rgba(255, 255, 255, 0.9) !important;
+  }
+
+  .dark .shadow-clay-pressed {
+    box-shadow: 
+      inset 8px 8px 16px rgba(0, 0, 0, 0.7), 
+      inset -8px -8px 16px rgba(255, 255, 255, 0.04) !important;
+  }
 }
