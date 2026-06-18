@@ -14,9 +14,13 @@ interface StatCardProps {
 export default function StatCard({ title, value, icon, trend, isPositive = true }: StatCardProps) {
   return (
     <motion.div
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-      className="p-6 rounded-3xl bg-clay shadow-clay flex flex-col justify-between"
+      drag
+      dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+      dragElastic={0.1}
+      whileHover={{ scale: 1.05, rotate: Math.random() * 2 - 1 }}
+      whileTap={{ scale: 0.95, rotate: 0 }}
+      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+      className="p-6 rounded-3xl bg-clay shadow-clay flex flex-col justify-between cursor-grab active:cursor-grabbing z-10 relative"
     >
       <div className="flex justify-between items-start mb-4">
         <div className="w-12 h-12 rounded-2xl bg-clay shadow-clay-pressed flex items-center justify-center text-accent">

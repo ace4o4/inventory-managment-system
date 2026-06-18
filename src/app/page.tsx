@@ -61,7 +61,13 @@ export default function Dashboard() {
         {/* Left Col: Revenue Chart & Cost Breakdown */}
         <div className="lg:col-span-2 space-y-8">
           
-          <motion.div variants={itemVariants} className="p-8 rounded-[2rem] bg-clay shadow-clay flex flex-col md:flex-row gap-8">
+          <motion.div 
+            variants={itemVariants} 
+            drag dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }} dragElastic={0.05}
+            whileHover={{ scale: 1.01 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="p-8 rounded-[2rem] bg-clay shadow-clay flex flex-col md:flex-row gap-8 cursor-grab active:cursor-grabbing relative z-10"
+          >
              <div className="flex-1">
                <h3 className="text-foreground/60 font-medium mb-2">Sales Revenue</h3>
                <div className="text-5xl font-bold text-foreground mb-4">55k</div>
@@ -104,7 +110,12 @@ export default function Dashboard() {
           </motion.div>
 
           <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="p-8 rounded-[2rem] bg-clay shadow-clay">
+            <motion.div 
+              drag dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }} dragElastic={0.1}
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 400, damping: 15 }}
+              className="p-8 rounded-[2rem] bg-clay shadow-clay cursor-grab active:cursor-grabbing relative z-10"
+            >
               <div className="flex justify-between items-center mb-6">
                 <h3 className="font-bold text-foreground">Cost Breakdown</h3>
                 <span className="text-xs text-foreground/50">Dec 15, 2026</span>
@@ -129,9 +140,14 @@ export default function Dashboard() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="p-8 rounded-[2rem] bg-clay shadow-clay flex flex-col justify-between">
+            <motion.div 
+              drag dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }} dragElastic={0.1}
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 400, damping: 15 }}
+              className="p-8 rounded-[2rem] bg-clay shadow-clay flex flex-col justify-between cursor-grab active:cursor-grabbing relative z-10"
+            >
               <div className="flex justify-between items-center mb-6">
                 <h3 className="font-bold text-foreground">Top Market Demand</h3>
               </div>
@@ -143,7 +159,7 @@ export default function Dashboard() {
                   </BarChart>
                 </ResponsiveContainer>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
 
@@ -171,7 +187,13 @@ export default function Dashboard() {
             </motion.div>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="p-8 rounded-[2rem] bg-clay shadow-clay">
+          <motion.div 
+            variants={itemVariants}
+            drag dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }} dragElastic={0.05}
+            whileHover={{ scale: 1.01 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }} 
+            className="p-8 rounded-[2rem] bg-clay shadow-clay cursor-grab active:cursor-grabbing relative z-10"
+          >
              <div className="flex justify-between items-center mb-6">
                 <h3 className="font-bold text-foreground">Recent Orders</h3>
                 <motion.button onClick={() => setIsOrdersModalOpen(true)} whileTap={{ scale: 0.9 }} className="w-8 h-8 rounded-full bg-clay shadow-clay flex items-center justify-center text-foreground/40 hover:text-accent transition-colors">
