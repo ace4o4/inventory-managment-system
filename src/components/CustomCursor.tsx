@@ -23,11 +23,11 @@ export function CustomCursor() {
 
   useEffect(() => {
     const moveCursor = (e: MouseEvent) => {
-      cursorX.set(e.clientX - 16);
-      cursorY.set(e.clientY - 16);
+      cursorX.set(e.clientX - 20);
+      cursorY.set(e.clientY - 20);
       
-      dotX.set(e.clientX - 4);
-      dotY.set(e.clientY - 4);
+      dotX.set(e.clientX - 6);
+      dotY.set(e.clientY - 6);
     };
 
     const handleMouseOver = (e: MouseEvent) => {
@@ -57,19 +57,19 @@ export function CustomCursor() {
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 rounded-full border-2 border-accent pointer-events-none z-[9999] mix-blend-difference hidden md:block shadow-[0_0_10px_rgba(59,130,246,0.5)]"
+        className="fixed top-0 left-0 w-10 h-10 rounded-full pointer-events-none z-[9999] hidden md:block bg-clay shadow-clay-pressed opacity-50"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
         }}
         animate={{
           scale: isHovered ? 1.5 : 1,
-          backgroundColor: isHovered ? "rgba(59, 130, 246, 0.2)" : "transparent",
+          opacity: isHovered ? 0.8 : 0.5,
         }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       />
       <motion.div
-        className="fixed top-0 left-0 w-2 h-2 rounded-full bg-accent pointer-events-none z-[10000] mix-blend-difference hidden md:block shadow-[0_0_5px_rgba(59,130,246,0.8)]"
+        className="fixed top-0 left-0 w-3 h-3 rounded-full pointer-events-none z-[10000] hidden md:block bg-accent shadow-[0_0_10px_var(--accent)]"
         style={{
           x: dotXSpring,
           y: dotYSpring,
