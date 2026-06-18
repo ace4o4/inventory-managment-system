@@ -5,6 +5,7 @@ import { Truck, ArrowRight, PackageOpen, Factory, Plus } from "lucide-react";
 import EmptyState from "@/components/EmptyState";
 import { useState } from "react";
 import { Modal } from "@/components/Modal";
+import { toast } from "sonner";
 
 export default function RestockPage() {
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
@@ -22,6 +23,7 @@ export default function RestockPage() {
   const handleOrderSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsOrderModalOpen(false);
+    toast.success("Purchase order submitted successfully!");
     // Logic to submit purchase order
   };
 

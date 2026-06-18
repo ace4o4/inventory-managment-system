@@ -3,13 +3,16 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import { LayoutDashboard, Package, RotateCcw, Settings, Box } from "lucide-react";
+import { LayoutDashboard, Package, Truck, Settings, Users, ShoppingCart, BarChart3, Box } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
-  { name: "Overview", href: "/", icon: LayoutDashboard },
+  { name: "Dashboard", href: "/", icon: LayoutDashboard },
+  { name: "Orders", href: "/orders", icon: ShoppingCart, badge: 3 },
   { name: "Products", href: "/products", icon: Package },
-  { name: "Restock", href: "/restock", icon: RotateCcw },
+  { name: "Restock", href: "/restock", icon: Truck, badge: 1 },
+  { name: "Suppliers", href: "/suppliers", icon: Users },
+  { name: "Analytics", href: "/analytics", icon: BarChart3 },
   { name: "Settings", href: "/settings", icon: Settings },
 ];
 
@@ -37,12 +40,19 @@ export default function Sidebar() {
               <motion.div
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className={`flex items-center gap-3 px-4 py-3 rounded-2xl transition-colors z-10 relative ${
+                className={`flex items-center justify-between px-4 py-3 rounded-2xl transition-colors z-10 relative ${
                   isActive ? "text-accent font-semibold" : "text-foreground/70 hover:text-foreground"
                 }`}
               >
-                <item.icon size={20} strokeWidth={isActive ? 2.5 : 2} />
-                <span>{item.name}</span>
+                <div className="flex items-center gap-3">
+                  <item.icon size={20} strokeWidth={isActive ? 2.5 : 2} />
+                  <span>{item.name}</span>
+                </div>
+                {item.badge && (
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-accent text-[10px] font-bold text-white shadow-clay-sm">
+                    {item.badge}
+                  </span>
+                )}
               </motion.div>
               
               {isActive && (

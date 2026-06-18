@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { User, Bell } from "lucide-react";
 import { useState } from "react";
+import { toast } from "sonner";
 
 export default function SettingsPage() {
   const [lowStockAlerts, setLowStockAlerts] = useState(true);
@@ -57,7 +58,12 @@ export default function SettingsPage() {
           </div>
           
           <div className="mt-8 flex justify-end">
-             <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="px-6 py-3 text-sm font-semibold text-white bg-accent hover:bg-accent/90 transition-colors shadow-clay-sm rounded-xl">
+             <motion.button 
+               onClick={() => toast.success("Settings saved successfully!")}
+               whileHover={{ scale: 1.02 }} 
+               whileTap={{ scale: 0.98 }} 
+               className="px-6 py-3 text-sm font-semibold text-white bg-accent hover:bg-accent/90 transition-colors shadow-clay-sm rounded-xl"
+             >
                Save Changes
              </motion.button>
           </div>
