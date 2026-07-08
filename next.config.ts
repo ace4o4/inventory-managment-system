@@ -3,8 +3,7 @@ import type { NextConfig } from "next";
 
 
 
-asfajlefbhkerbfh
-
+asfajlefbhke
 
 const nextConfig: NextConfig = {
   /* config options here */
