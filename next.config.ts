@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 
-asf
+a
 const nextConfig: NextConfig = {
   /* config options here */
 };
