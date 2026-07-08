@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 
 
 
-asfajlefbhke
+asfajlefbh
 
 
 const nextConfig: NextConfig = {
