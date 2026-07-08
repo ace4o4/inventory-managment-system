@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 
-asfajlefbh
+asfajlef
 
 
 const nextConfig: NextConfig = {
